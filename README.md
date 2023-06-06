@@ -1,2 +1,4 @@
 # Set_Default_MeetingRoom_CalendarProcessing
 Sets default meetingroom CalendarProcessing
+
+Needs ExchangeOnline module and Exchange-admin credentials
