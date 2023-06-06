@@ -82,9 +82,14 @@ foreach ($Room in $Rooms) {
 }
 
 if ($Changed -ne $null) {
+    
     Write-Host ""
     Write-Host "These rooms have been changed:" -ForegroundColor Yellow    
+    
     foreach ($Change in $Changed) {
+        
         Write-Host "    - $($Change)" -ForegroundColor Cyan
+    
     }
+
 }
