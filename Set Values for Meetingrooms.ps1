@@ -2,20 +2,17 @@
 try {
     Get-AcceptedDomain -ErrorAction Stop -WarningAction SilentlyContinue | Out-Null
 } catch {
-     if {
-        if (-not $Credential) {
-            # Prompt the user for AzureAD credentials
-            $Credential = Get-Credential -Message "Enter your AzureAD credentials"
-        }
+    if (-not $Credential) {
+        # Prompt the user for AzureAD credentials
+        $Credential = Get-Credential -Message "Enter your AzureAD credentials"
+    }
 
-        try {
-            Connect-ExchangeOnline -Credential $Credential -ErrorAction Stop | Out-Null
-        } catch {
-            $ConditionalAccess = $True
-        }
-    } else ($ConditionalAccess) {
+    try {
+        Connect-ExchangeOnline -Credential $Credential -ErrorAction Stop | Out-Null
+    } catch {
         Connect-ExchangeOnline | Out-Null
     }
+
 }
 
 #-----------------------------------------------------------------------------#
